@@ -2,7 +2,6 @@
 require_once 'includes/auth.php';
 require_once 'includes/functions.php';
 
-$_SESSION['username'] = "testuser";
 requireLogin(); // Make sure user is logged in
 
 $username = $_SESSION['username'];
