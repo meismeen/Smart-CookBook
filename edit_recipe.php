@@ -47,27 +47,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Edit Recipe</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <h1>Edit Recipe: <?= htmlspecialchars($target->title) ?></h1>
 
-    <form method="POST">
-        <label>Title:</label><br>
-        <input type="text" name="title" value="<?= htmlspecialchars($target->title) ?>" required><br><br>
+<!-- Page Content -->
+<div class="container mt-5">
+        <h2 class="mb-4 text-center">Edit Recipe</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" value="<?= htmlspecialchars($target->title) ?>" required>
+            </div>
 
-        <label>Ingredients (comma-separated):</label><br>
-        <textarea name="ingredients" required><?= htmlspecialchars($target->ingredients) ?></textarea><br><br>
+            <div class="mb-3">
+                <label class="form-label">Ingredients (comma-separated)</label>
+                <textarea name="ingredients" class="form-control" rows="3" required><?= htmlspecialchars($target->ingredients) ?></textarea>
+            </div>
 
-        <label>Steps:</label><br>
-        <textarea name="steps" required><?= htmlspecialchars($target->steps) ?></textarea><br><br>
+            <div class="mb-3">
+                <label class="form-label">Steps</label>
+                <textarea name="steps" class="form-control" rows="4" required><?= htmlspecialchars($target->steps) ?></textarea>
+            </div>
 
-        <label>Tags:</label><br>
-        <input type="text" name="tags" value="<?= htmlspecialchars($target->tags) ?>"><br><br>
+            <div class="mb-3">
+                <label class="form-label">Tags</label>
+                <input type="text" name="tags" class="form-control" value="<?= htmlspecialchars($target->tags) ?>">
+            </div>
 
-        <button type="submit">Update Recipe</button>
-    </form>
+            <div class="d-flex justify-content-between">
+                <a href="dashboard.php" class="btn btn-secondary">← Back</a>
+                <button type="submit" class="btn btn-primary">Update Recipe</button>
+            </div>
+        </form>
+</div>
 
-    <p><a href="dashboard.php">← Back to Dashboard</a></p>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
